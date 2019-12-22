@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String extractText() {
         //Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
-        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.tests);
+        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
         // Bitmap btmp = open(bp);
         Bitmap btmp = open(bitmap);
         TessBaseAPI tessBaseApi = new TessBaseAPI();

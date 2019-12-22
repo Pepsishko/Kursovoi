@@ -4,6 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.widget.ArrayAdapter;
 
 import java.sql.Struct;
 import java.util.ArrayList;
@@ -22,7 +27,8 @@ public class DBHELPER extends SQLiteOpenHelper {
 
 
    public ArrayList<String> nameBook;
-
+   public ArrayList<String> author;
+   public ArrayList<String> genre;
 
 
     public DBHELPER(Context context){
@@ -145,19 +151,24 @@ public class DBHELPER extends SQLiteOpenHelper {
         db.close();
         return false;
     }
-    public void returndData(){
-        nameBook=new ArrayList<>();
+    public ArrayList<String> returndData(){
+
+        ArrayList<String> result=new ArrayList<>();
+
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectAuthor = "SELECT NAME_OF_BOOK fROM " + MAIN_TABLE;
+        String selectAuthor = "SELECT NAME_OF_BOOK,(SELECT NAME_OF_AUTHOR  from authortable where ID_AUTHOR=AUTHOR),(SELECT NAME_OF_GENRE  from genretable where ID_GENRE=GENRE) fROM " + MAIN_TABLE;
         Cursor cursor = db.rawQuery(selectAuthor, null);
         if (cursor.moveToFirst()) {
             do {
-                nameBook.add(cursor.getString(0));
+
+                result.add(cursor.getString(0)+":"+cursor.getString(1)+":"+cursor.getString(2));
+              //  nameBook.add();
             } while (cursor.moveToNext());
         }
         // closing connection
         cursor.close();
         db.close();
+        return result;
     }
     public ArrayList<String> description(String value){
         ArrayList<String> result=new ArrayList<>();
@@ -174,6 +185,67 @@ public class DBHELPER extends SQLiteOpenHelper {
                 result.add(cursor.getString(5));
                 result.add(cursor.getString(6));
                 result.add(cursor.getString(7));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return  result;
+    }
+    public ArrayList<String> Genre(){
+        ArrayList<String> result=new ArrayList<>();
+        result.add("");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String select="SELECT NAME_OF_GENRE from genretable";
+        Cursor cursor = db.rawQuery(select, null);
+        if (cursor.moveToFirst()) {
+            do {
+                result.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return  result;
+    }
+
+    public ArrayList<String> City(){
+        ArrayList<String> result=new ArrayList<>();
+        result.add("");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String select="SELECT NAME_OF_CITY from citytable";
+        Cursor cursor = db.rawQuery(select, null);
+        if (cursor.moveToFirst()) {
+            do {
+                result.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return  result;
+    }
+    public ArrayList<String> Search(String quere){
+        ArrayList<String> result=new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+       // String select=quere;
+        Cursor cursor = db.rawQuery(quere, null);
+        if (cursor.moveToFirst()) {
+            do {
+                result.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return  result;
+    }
+    public ArrayList<String> Publisher(){
+        ArrayList<String> result=new ArrayList<>();
+        result.add("");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String select="SELECT NAME_OF_PUBLISHER from publishertable";
+        Cursor cursor = db.rawQuery(select, null);
+        if (cursor.moveToFirst()) {
+            do {
+                result.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
         cursor.close();
