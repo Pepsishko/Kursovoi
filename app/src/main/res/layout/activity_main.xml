@@ -69,10 +69,24 @@
         android:text="Добамашняя библиотека"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.873" />
+
+    <Button
+        android:id="@+id/loadPicture"
+        android:layout_width="131dp"
+        android:layout_height="67dp"
+
+        android:onClick="loadClick"
+        android:text="Добамашняя библиотека"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
 
     <EditText
         android:id="@+id/editText2"

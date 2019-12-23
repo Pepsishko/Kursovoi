@@ -6,15 +6,11 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Prov" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="log" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb073e49-0e65-44b6-914b-fddf2efe4d42" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Search.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/search_books.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -24,12 +20,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Books.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3774">
-              <caret line="266" column="74" selection-start-line="266" selection-start-column="74" selection-end-line="266" selection-end-column="74" />
+            <state relative-caret-position="399">
+              <caret line="261" column="83" selection-start-line="261" selection-start-column="83" selection-end-line="261" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -62,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="140" column="34" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
+            <state relative-caret-position="408">
+              <caret line="38" column="226" selection-start-line="38" selection-start-column="226" selection-end-line="38" selection-end-column="226" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Books.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+            <state relative-caret-position="612">
+              <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+            <state relative-caret-position="377">
+              <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,34 +89,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
           <provider editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="50" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="50" />
+              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="17">
+              <caret line="1" column="50" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="50" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -155,24 +149,25 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DataAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DataBaseHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Work.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_description.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/search_books.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Search.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Books.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="776" />
+    <option name="y" value="106" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -180,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -210,19 +206,29 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="kursovoi" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Kursovoi" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Kursovoi" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="5a13acfb" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-12-11T15:12:41.213Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_5X_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-12-22T22:02:22.084Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -343,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576511000830</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Passed">
+      <created>1577051863824</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577051863824</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -373,12 +386,12 @@
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32932165" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49840087" weight="0.32827735" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50959486" side_tool="true" weight="0.24702059" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.4904051" weight="0.20801733" />
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.4904051" visible="true" weight="0.20801733" />
       <window_info anchor="bottom" id="Android Profiler" order="6" weight="0.32932165" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946696" visible="true" weight="0.31960997" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.7020256" weight="0.37089714" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946696" weight="0.31960997" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.7020256" weight="0.37053087" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32936078" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.17590618" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.45362473" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -418,7 +431,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Hello" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hello" />
+    <MESSAGE value="Passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Passed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -488,13 +502,6 @@
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/xiaomi-mi_note_3-5a13acfb/mnt/sdcard/test~2.jpg" />
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/xiaomi-mi_note_3-5a13acfb/mnt/sdcard/test.jpg" />
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/mnt/sdcard/test.jpg" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="7305" selection-start-line="7305" selection-end-line="7305" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/fufel.jpg" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/tests.png">
       <provider selected="true" editor-type-id="images" />
@@ -545,12 +552,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_description.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="32" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/com/android/internal/os/RuntimeInit.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -574,12 +581,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_books.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2669">
           <caret line="157" column="4" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="4" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Search.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -592,10 +599,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5554/sdcard/picture.jpg" />
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="2775" selection-start-line="2775" selection-end-line="2775" />
+        <state relative-caret-position="278">
+          <caret line="4317" selection-start-line="4317" selection-end-line="4317" />
           <folding>
             <element signature="e#136474#136475#0" expanded="true" />
             <element signature="e#136528#136529#0" expanded="true" />
@@ -603,51 +611,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-29/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="7305" selection-start-line="7305" selection-end-line="7305" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3774">
-          <caret line="266" column="74" selection-start-line="266" selection-start-column="74" selection-end-line="266" selection-end-column="74" />
+        <state relative-caret-position="399">
+          <caret line="261" column="83" selection-start-line="261" selection-start-column="83" selection-end-line="261" selection-end-column="83" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="50" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/DBHELPER.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="140" column="34" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        <state relative-caret-position="408">
+          <caret line="38" column="226" selection-start-line="38" selection-start-column="226" selection-end-line="38" selection-end-column="226" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -656,11 +637,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/Books.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        <state relative-caret-position="612">
+          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/kursovoi/BookDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_books.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="50" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/multi_lines.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>

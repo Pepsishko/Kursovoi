@@ -259,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String extractText() {
         //Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
-        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
+        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.tests);
         // Bitmap btmp = open(bp);
         Bitmap btmp = open(bitmap);
         TessBaseAPI tessBaseApi = new TessBaseAPI();
@@ -445,5 +445,9 @@ public class MainActivity extends AppCompatActivity {
     public void openBooksClick(View view) {
         Intent intentView = new Intent(MainActivity.this, Books.class);
         startActivity(intentView);
+    }
+
+    public void loadClick(View view) {
+
     }
 }
