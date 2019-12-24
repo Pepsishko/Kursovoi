@@ -11,12 +11,13 @@ public class BookDescription extends Activity {
     TextView textView;
     ArrayList<String> strings;
     DBHELPER dbhelper;
+    String text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
         Intent intent= getIntent();
-        String text= intent.getExtras().getString("name");
+        text= intent.getExtras().getString("name");
         String[] split= text.split("/");
         split[0]=split[0].trim();
         split[1]=split[1].trim();
@@ -30,6 +31,12 @@ public class BookDescription extends Activity {
     public void deleteBook(View view) {
         dbhelper.deleteRecord(strings.get(0));
         Intent intentView = new Intent(this, Books.class);
+        startActivity(intentView);
+    }
+
+    public void updateClick(View view) {
+        Intent intentView = new Intent(this, UpdateDB.class);
+        intentView.putExtra("update",text);
         startActivity(intentView);
     }
 }

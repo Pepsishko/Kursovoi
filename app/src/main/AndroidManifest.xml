@@ -22,10 +22,10 @@
         <activity android:name=".Books">
     </activity>
         <activity android:name=".Search">
-        </activity>>
-        <activity android:name=".BookDescription"
-            android:theme="@style/Theme.AppCompat.DayNight">
-
+        </activity>
+        <activity android:name=".BookDescription">
+        </activity>
+        <activity android:name=".UpdateDB">
         </activity>
     </application>
 
