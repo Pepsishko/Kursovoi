@@ -1,14 +1,12 @@
 package com.example.kursovoi;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 public class Search extends Activity {
     EditText nameEdit;
@@ -26,6 +24,11 @@ public class Search extends Activity {
     String request1 ="SELECT NAME_OF_BOOK,NAME_OF_GENRE,NAME_OF_AUTHOR,NAME_OF_CITY,NAME_OF_PUBLISHER,maintable.YEAR,maintable.PAGES,maintable.ISBN " +
            "from maintable,genretable,publishertable,citytable,authortable where maintable.GENRE=genretable.ID_GENRE AND maintable.AUTHOR=authortable.ID_AUTHOR AND " +
            "maintable.CITY=citytable.ID_CITY AND maintable.PUBLISHER=publishertable.ID_PUBLISHER AND ";
+
+    /**
+     * Задаёт начальную установку параметров при инициализации активности
+     * @param savedInstanceState Сохраненное состояние
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +44,18 @@ public class Search extends Activity {
         page1=findViewById(R.id.pageEdit2);
         year=findViewById(R.id.yearEdit1);
         year1=findViewById(R.id.yearEdit2);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.Genre());
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.City());
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.Publisher());
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.genre());
+        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.city());
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.publisher());
         genre.setAdapter(adapter);
         city.setAdapter(adapter1);
         publisher.setAdapter(adapter2);
     }
 
-    public void searchBTNClick(View view) {
+    /**
+     * Формирование запроса по поиску книг(и) и отображение в ListView
+     */
+    void formation(){
         String request=request1;
         if(!nameEdit.getText().toString().equals("")) {
             request+="authortable.NAME_OF_AUTHOR="+"\""+nameEdit.getText().toString()+"\""+" AND ";
@@ -84,12 +90,19 @@ public class Search extends Activity {
         String str="";
         for(int i=0;i<varSplit.length;i++){
 
-                str+=varSplit[i]+" ";
+            str+=varSplit[i]+" ";
 
         }
         str=str.trim();
-        ArrayAdapter<String> searchAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.Search(str));
+        ArrayAdapter<String> searchAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.search(str));
         listView.setAdapter(searchAdapter);
 
+    }
+    /**
+     * Вызов метода формирования запроса поиска
+     * @param view параметр отвечающий за отображение
+     */
+    public void searchBTNClick(View view) {
+       formation();
     }
 }

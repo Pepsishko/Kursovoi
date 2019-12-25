@@ -60,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
     Bitmap bp;
     public static String DATA_PATH;
 
+    /**
+     * Просмотр разрешений
+     * @param requestCode используется, чтобы отличать друг от друга пришедшие результаты
+     * @param permissions список разрешений
+     * @param grantResults здесь хранятся результаты по каждому из запрашиваемых разрешений
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == REQUEST_READ_EXTERNAL_STORAGE) {
@@ -73,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Задаёт начальную установку параметров при инициализации активности
+     * @param savedInstanceState Сохраненное состояние
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
         dbhelper=new DBHELPER(this);
     }
 
+    /**
+     * Проверка разрешения
+     * @param permission строковое название разрешения
+     * @return true-если есть это разрешение, false-если нет
+     */
     private boolean isPermissionGranted(String permission) {
         // проверяем разрешение - есть ли оно у нашего приложения
         int permissionCheck = ActivityCompat.checkSelfPermission(this, permission);
@@ -104,20 +119,16 @@ public class MainActivity extends AppCompatActivity {
         return permissionCheck == PackageManager.PERMISSION_GRANTED;
     }
 
+    /**
+     *
+     * @param permission строковое название разрешения
+     * @param requestCode используется, чтобы отличать друг от друга результаты
+     */
     private void requestPermission(String permission, int requestCode) {
         // запрашиваем разрешение
         ActivityCompat.requestPermissions(this,
                 new String[]{permission}, requestCode);
     }
-
-    //  Bitmap btmp=Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-    //  Canvas canvas=new Canvas(btmp);
-    //   Paint paint = new Paint();
-    //   ColorMatrix cm=new ColorMatrix();
-    //   cm.setSaturation(0);
-    //   paint.setColorFilter(new ColorMatrixColorFilter(cm));
-    //  canvas.drawBitmap(bitmap,0,0,paint);
-
 
     public static Bitmap createContrast(Bitmap src, double value) {
         // image size
@@ -199,28 +210,12 @@ public class MainActivity extends AppCompatActivity {
         return bmOut;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //  OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback);
-    }
 
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS: {
-                    //Мы готовы использовать OpenCV
-                }
-                break;
-                default: {
-                    super.onManagerConnected(status);
-                }
-                break;
-            }
-        }
-    };
-
+    /**
+     * Преобразование изображения сначала в черно-белое, затем в бинарный вид
+     * @param src Исходное изображение
+     * @return Обработанное изображение
+     */
     public Bitmap open(Bitmap src) {
         Bitmap bmOut = Bitmap.createBitmap(src.getWidth(), src.getHeight(), src.getConfig());
         // Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
@@ -257,9 +252,13 @@ public class MainActivity extends AppCompatActivity {
         return finalImage;
     }
 
+    /**
+     * Метод распознания текста
+     * @return Распознанный текст
+     */
     private String extractText() {
-        //Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
-        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.tests);
+       // Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
+        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
         // Bitmap btmp = open(bp);
         Bitmap btmp = open(bitmap);
         TessBaseAPI tessBaseApi = new TessBaseAPI();
@@ -271,7 +270,9 @@ public class MainActivity extends AppCompatActivity {
         tessBaseApi.end();
         return extractedText;
     }
-
+    /**
+     * Метод создания папки для файла .traineddata
+     */
     public void Test() {
 
         File directory = new File("/mnt/sdcard/tesseract", "tessdata");
@@ -287,13 +288,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Метод создания записи файла в папку tessdata файла .traineddata
+     */
     public void Test1() {
-
         Resources r = this.getResources();
         InputStream is = r.openRawResource(R.raw.rus);
-
         try {
-
             byte[] buffer = new byte[is.available()];
             is.read(buffer);
             is.close();
@@ -301,15 +302,16 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream outputStream = new FileOutputStream(document.getPath());
             outputStream.write(buffer);
             outputStream.close();
-            // ByteArrayOutputStream bos=new ByteArrayOutputStream();
-            // bos.write(buffer);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
     Work work=new Work();
+
+    /**
+     * Button для вызова методов по созданию файла и распознанию текста
+     * @param view параметр отвечающий за отображение
+     */
     public void onClick(View view) {
         //Test();
         //  Test1();
@@ -319,52 +321,43 @@ public class MainActivity extends AppCompatActivity {
       //          "Город : "+strings[3]+"\n"+"Издательство : "+strings[4]+"\n"+"Год : "+strings[5]+"\n"+"Количество страниц : "+ strings[6]+"\n"+"ISBN : "+strings[7]);
 
     }
-
+    /**
+     * Получение данных от вызаемой Activity
+     * @param requestCode используется, чтобы отличать друг от друга пришедшие результаты
+     * @param resultCode позволяет определить успешно прошел вызов или нет
+     * @param data содержит данные с предыдущего Intent'а
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_ID_IMAGE_CAPTURE) {
-
-                //  try {
                 performCrop();
-                //   InputStream pictureInputStream = this.getContentResolver().openInputStream(outputFileUri);
-                //   bp = BitmapFactory.decodeStream(pictureInputStream);
-                //  } catch (FileNotFoundException e) {
-                //     e.printStackTrace();
-                //  }
-                //   img.setImageURI(outputFileUri);
-                //  File file = new File(Environment.getExternalStorageDirectory() + "/test.jpg");
-                //    boolean deleted = file.delete();
-                //    File file1 = new File(Environment.getExternalStorageDirectory(), "test1.jpg");
-                //  outputFileUri = Uri.fromFile(file1);
             }
             if (requestCode == PIC_CROP) {
                 try {
-
                     InputStream pictureInputStream = this.getContentResolver().openInputStream(outputFileUri);
                     bp = BitmapFactory.decodeStream(pictureInputStream);
-                    //img.setImageURI(outputFileUri);
-                    //  File file = new File(Environment.getExternalStorageDirectory() + "/test.jpg");
-                    //  boolean deleted = file.delete();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
 
             }
 
+
         }
     }
-
-    //  @Override
-    //  public void startActivityForResult(Intent intent, int requestCode) {
-    //      super.startActivityForResult(intent, requestCode);
-    //  }
-
+    /**
+     * Button для начала работы с камерой
+     * @param view параметр отвечающий за отображение
+     */
     public void onPhotoClick(View view) {
         saveFullImage();
     }
 
+    /**
+     * Сохранение изображения в памяти телефона
+     */
     private void saveFullImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = new File(Environment.getExternalStorageDirectory(), "test.jpg");
@@ -373,6 +366,9 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_ID_IMAGE_CAPTURE);
     }
 
+    /**
+     * Кадрирование фотографии
+     */
     private void performCrop() {
         try {
 
@@ -381,10 +377,6 @@ public class MainActivity extends AppCompatActivity {
             cropIntent.setDataAndType(outputFileUri, "image/*");
             cropIntent.putExtra("crop", "true");
             cropIntent.putExtra("output",outputFileUri);
-            // cropIntent.putExtra("aspectX", 1);
-            //cropIntent.putExtra("aspectY", 1);
-            // cropIntent.putExtra("outputX", 256);
-            // cropIntent.putExtra("outputY", 256);
             cropIntent.putExtra("return-data", true);
             startActivityForResult(cropIntent, PIC_CROP);
         } catch (ActivityNotFoundException anfe) {
@@ -394,60 +386,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getThumbnailPicture() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, REQUEST_ID_IMAGE_CAPTURE);
-    }
     String[] strings;
+
+    /**
+     * Button для просмотра распознанного текста
+     * @param view параметр отвечающий за отображение
+     */
     public void onClick1(View view) {
         work.load(txt.getText().toString());
         strings=work.splitter();
         text.setText("Название книги : "+ strings[0]+"\n"+"Жанр : "+strings[1]+"\n"+"Автор : "+strings[2]+"\n"+
                 "Город : "+strings[3]+"\n"+"Издательство : "+strings[4]+"\n"+"Год : "+strings[5]+"\n"+"Количество страниц : "+ strings[6]+"\n"+"ISBN : "+strings[7]);
-    //  if(dbhelper.checkAuthor(strings[2])){
-    //      Toast toast = Toast.makeText(this, "Автор есть", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }else{
-
-    //      Toast toast = Toast.makeText(this, "Автор нет", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }
-    //  if(dbhelper.checkGenre(strings[1])){
-    //      Toast toast = Toast.makeText(this, "Жанр есть", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }else{
-
-    //      Toast toast = Toast.makeText(this, "Жанра нет", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }
-    //  if(dbhelper.checkCity(strings[3])){
-    //      Toast toast = Toast.makeText(this, "Город есть", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }else{
-
-    //      Toast toast = Toast.makeText(this, "Города нет", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }
-    //  if(dbhelper.checkPublisher(strings[4])){
-    //      Toast toast = Toast.makeText(this, "Издатель есть", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }else{
-
-    //      Toast toast = Toast.makeText(this, "Издателя нет", Toast.LENGTH_SHORT);
-    //      toast.show();
-    //  }
     }
 
+    /**
+     * Button для загрузки данных в базу данных
+     * @param view параметр отвечающий за отображение
+     */
     public void onLoadDbClick(View view) {
         dbhelper.insertLabel(strings[0],strings[5],strings[6],strings[1],strings[2],strings[3],strings[4],strings[7]);
+        finish();
     }
 
+    /**
+     * закрытие Activity
+     * @param view параметр отвечающий за отображение
+     */
     public void openBooksClick(View view) {
-        Intent intentView = new Intent(MainActivity.this, Books.class);
-        startActivity(intentView);
+        finish();
     }
 
-    public void loadClick(View view) {
-
-    }
 }

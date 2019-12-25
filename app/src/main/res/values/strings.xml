@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Kursovoi</string>
+    <string name="camera">Сделать фото данных книги</string>
+    <string name="detect">Распознать данные</string>
+    <string name="check">Просмотреть данные</string>
+    <string name="addToDB">Добавить в базу данных</string>
+    <string name="loadHome">Перейти в домашнюю библиотеку</string>
+    <string name="search">Найти книгу</string>
+    <string name="addBook">Добавить книгу</string>
+    <string name="change">Изменить данные книги</string>
+    <string name="delete">Удалить книгу</string>
+    <string name="city">Город:</string>
+    <string name="publisher">Издательство:</string>
+    <string name="pages">Количество страниц:</string>
+    <string name="year">Год:</string>
+    <string name="name">Название книги:</string>
+    <string name="genre">Жанр:</string>
+    <string name="author">Автор:</string>
 </resources>

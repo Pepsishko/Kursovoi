@@ -1,12 +1,11 @@
 package com.example.kursovoi;
 
-import java.util.logging.StreamHandler;
-
 public class Work {
     String str;
     public void load(String value){
         str=value;
     }
+
    public String[] splitter(){
 
        String[] result=new String[8];
