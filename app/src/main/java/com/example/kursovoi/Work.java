@@ -2,6 +2,11 @@ package com.example.kursovoi;
 
 public class Work {
     String str;
+
+    /**
+     *
+     * @param value  Строка данных для
+     */
     public void load(String value){
         str=value;
     }

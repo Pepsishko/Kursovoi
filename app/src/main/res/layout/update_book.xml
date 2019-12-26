@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
     <Spinner
@@ -12,10 +13,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         app:layout_constraintVertical_bias="0.052" />
 
     <TextView
         android:id="@+id/textView4"
+        android:textColor="@color/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
@@ -28,6 +31,7 @@
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
+        android:textColor="@color/textView"
         android:layout_height="wrap_content"
         android:text="@string/pages"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,6 +44,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
+        android:textColor="@color/textView"
         android:layout_height="wrap_content"
         android:text="@string/author"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,6 +59,7 @@
         android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/text"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,6 +72,7 @@
         android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/text"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/year"
+        android:textColor="@color/textView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -90,6 +98,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/text"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,6 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/publisher"
+        android:textColor="@color/textView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,6 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/city"
+        android:textColor="@color/textView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -146,6 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="updClickBtn"
+        android:background="@drawable/inset"
         android:text="@string/change"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,6 +171,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/text"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -171,6 +184,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/genre"
+        android:textColor="@color/textView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

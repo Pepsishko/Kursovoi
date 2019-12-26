@@ -1,12 +1,18 @@
 package com.example.kursovoi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Search extends Activity {
     EditText nameEdit;
@@ -21,7 +27,7 @@ public class Search extends Activity {
     DBHELPER dbHelper;
     ListView listView;
    // String request="SELECT NAME_OF_BOOK,(SELECT NAME_OF_GENRE from genretable where ID_GENRE=GENRE),(SELECT NAME_OF_AUTHOR from authortable where ID_AUTHOR=AUTHOR),(SELECT NAME_OF_CITY from citytable where ID_CITY=CITY),(SELECT NAME_OF_PUBLISHER from publishertable where ID_PUBLISHER=PUBLISHER),YEAR,PAGES,ISBN from maintable where ";
-    String request1 ="SELECT NAME_OF_BOOK,NAME_OF_GENRE,NAME_OF_AUTHOR,NAME_OF_CITY,NAME_OF_PUBLISHER,maintable.YEAR,maintable.PAGES,maintable.ISBN " +
+    String request1 ="SELECT NAME_OF_BOOK,NAME_OF_GENRE,NAME_OF_AUTHOR,NAME_OF_CITY,NAME_OF_PUBLISHER,maintable.YEAR,maintable.PAGES,maintable.ISBN,maintable.ID_MAIN " +
            "from maintable,genretable,publishertable,citytable,authortable where maintable.GENRE=genretable.ID_GENRE AND maintable.AUTHOR=authortable.ID_AUTHOR AND " +
            "maintable.CITY=citytable.ID_CITY AND maintable.PUBLISHER=publishertable.ID_PUBLISHER AND ";
 
@@ -44,9 +50,9 @@ public class Search extends Activity {
         page1=findViewById(R.id.pageEdit2);
         year=findViewById(R.id.yearEdit1);
         year1=findViewById(R.id.yearEdit2);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.genre());
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.city());
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.publisher());
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.genre());
+        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.city());
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.publisher());
         genre.setAdapter(adapter);
         city.setAdapter(adapter1);
         publisher.setAdapter(adapter2);
@@ -93,11 +99,49 @@ public class Search extends Activity {
             str+=varSplit[i]+" ";
 
         }
-        str=str.trim();
-        ArrayAdapter<String> searchAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dbHelper.search(str));
-        listView.setAdapter(searchAdapter);
 
+        str=str.trim();
+
+
+        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
+        HashMap<String,String> item;
+        ArrayList<String> news=dbHelper.search(str);
+        for(int i=0;i<news.size();i++){
+            item=new HashMap<String, String>();
+            item.put("line1",news.get(i).split(":")[0].trim());
+            item.put("line2",news.get(i).split(":")[1].trim());
+            item.put("line3",news.get(i).split(":")[2].trim());
+            item.put("line4",news.get(i).split(":")[3].trim());
+            list.add(item);
+        }
+        SimpleAdapter sa=new SimpleAdapter(this, list,R.layout.multi_lines,new String[] { "line1","line2", "line3","line4"},new int[] {R.id.line_a, R.id.line_b, R.id.line_c,R.id.line_d});
+
+        listView.setAdapter(sa);
+        ((ListView)findViewById(R.id.searchBo)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String,String> obj=(HashMap<String,String>)parent.getItemAtPosition(position);
+                Intent i = new Intent(getApplicationContext(),BookDescription.class);
+                String string= obj.get("line4");
+                i.putExtra("name", string);
+                startActivityForResult(i,97);
+
+            }
+
+
+            //  simple_spinner_item
+        });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==97){
+            listView.setAdapter(null);
+
+        }
+    }
+
     /**
      * Вызов метода формирования запроса поиска
      * @param view параметр отвечающий за отображение

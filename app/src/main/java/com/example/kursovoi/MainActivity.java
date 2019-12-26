@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -46,7 +47,7 @@ import java.io.InputStream;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private static final String TAG = "Prov";
     EditText txt;
     TextView text;
@@ -257,14 +258,16 @@ public class MainActivity extends AppCompatActivity {
      * @return Распознанный текст
      */
     private String extractText() {
-       // Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
+      //  Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
         Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
-        // Bitmap btmp = open(bp);
+        Test();
+        Test1();
+       //  Bitmap btmp = open(bp);
         Bitmap btmp = open(bitmap);
         TessBaseAPI tessBaseApi = new TessBaseAPI();
         tessBaseApi.init("/mnt/sdcard/tesseract", "rus");
         // tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST,"ISBN");
-        // tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST,";");
+         tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST,";");
         tessBaseApi.setImage(btmp);
         String extractedText = tessBaseApi.getUTF8Text();
         tessBaseApi.end();
@@ -292,35 +295,25 @@ public class MainActivity extends AppCompatActivity {
      * Метод создания записи файла в папку tessdata файла .traineddata
      */
     public void Test1() {
+        File document = new File("/mnt/sdcard/tesseract/tessdata", "rus.traineddata");
+        if(!document.exists()){
         Resources r = this.getResources();
         InputStream is = r.openRawResource(R.raw.rus);
         try {
             byte[] buffer = new byte[is.available()];
             is.read(buffer);
             is.close();
-            File document = new File("/mnt/sdcard/tesseract/tessdata", "rus.traineddata");
+
             FileOutputStream outputStream = new FileOutputStream(document.getPath());
             outputStream.write(buffer);
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        }
     }
     Work work=new Work();
 
-    /**
-     * Button для вызова методов по созданию файла и распознанию текста
-     * @param view параметр отвечающий за отображение
-     */
-    public void onClick(View view) {
-        //Test();
-        //  Test1();
-        txt.setText(extractText());
-        work.load(txt.getText().toString());
-       // text.setText("Название книги : "+ strings[0]+"\n"+"Жанр : "+strings[1]+"\n"+"Автор : "+strings[2]+"\n"+
-      //          "Город : "+strings[3]+"\n"+"Издательство : "+strings[4]+"\n"+"Год : "+strings[5]+"\n"+"Количество страниц : "+ strings[6]+"\n"+"ISBN : "+strings[7]);
-
-    }
     /**
      * Получение данных от вызаемой Activity
      * @param requestCode используется, чтобы отличать друг от друга пришедшие результаты
@@ -342,6 +335,8 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                txt.setText(extractText());
+                work.load(txt.getText().toString());
             }
 
 
@@ -352,7 +347,9 @@ public class MainActivity extends AppCompatActivity {
      * @param view параметр отвечающий за отображение
      */
     public void onPhotoClick(View view) {
+
         saveFullImage();
+
     }
 
     /**
@@ -364,6 +361,7 @@ public class MainActivity extends AppCompatActivity {
         outputFileUri = Uri.fromFile(file);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
         startActivityForResult(intent, REQUEST_ID_IMAGE_CAPTURE);
+
     }
 
     /**

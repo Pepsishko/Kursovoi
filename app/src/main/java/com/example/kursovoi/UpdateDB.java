@@ -47,9 +47,10 @@ public class UpdateDB extends Activity {
         ArrayList<String> genreList= dbHelper.genre();
         ArrayList<String> cityList= dbHelper.city();
         ArrayList<String> publisherList= dbHelper.publisher();
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,genreList);
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,cityList);
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,publisherList);
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,genreList);
+        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,cityList);
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,publisherList);
         int getNumGenre=0;
         int getNumCity=0;
         int getNumPublisher=0;

@@ -400,7 +400,7 @@ public class DBHELPER extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(quere, null);
         if (cursor.moveToFirst()) {
             do {
-                result.add(cursor.getString(0));
+                result.add(cursor.getString(0)+":"+cursor.getString(2)+":"+cursor.getString(1)+":"+cursor.getString(8));
             } while (cursor.moveToNext());
         }
         cursor.close();
