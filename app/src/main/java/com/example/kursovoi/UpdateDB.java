@@ -23,7 +23,7 @@ public class UpdateDB extends Activity {
     DBHELPER dbHelper;
     ArrayList<String> strings;
     /**
-     * Задаёт начальную установку параметров при инициализации активности
+     * Задаёт начальную установку параметров при инициализации активности.
      * @param savedInstanceState Сохраненное состояние
      */
     @Override
@@ -79,7 +79,7 @@ public class UpdateDB extends Activity {
     }
 
     /**
-     * Изменение в полях базы данных
+     * Метод выполняющий запрос в базу данных на изменение записи в ней
      * @param view параметр отвечающий за отображение
      */
     public void updClickBtn(View view) {

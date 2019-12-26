@@ -12,7 +12,7 @@ public class Work {
     }
 
    public String[] splitter(){
-
+try{
        String[] result=new String[8];
        String string=str.replace('—','-');
       String temp;
@@ -60,5 +60,12 @@ public class Work {
        result[7]=temp.substring(temp.indexOf('9'));
        result[7]=result[7].trim();
        return  result;
+}
+catch (IllegalStateException ex){
+return  null;
+}
+catch (StringIndexOutOfBoundsException ex){
+    return null;
+}
    }
 }

@@ -22,6 +22,7 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -391,19 +392,36 @@ public class MainActivity extends Activity {
      * @param view параметр отвечающий за отображение
      */
     public void onClick1(View view) {
-        work.load(txt.getText().toString());
-        strings=work.splitter();
-        text.setText("Название книги : "+ strings[0]+"\n"+"Жанр : "+strings[1]+"\n"+"Автор : "+strings[2]+"\n"+
-                "Город : "+strings[3]+"\n"+"Издательство : "+strings[4]+"\n"+"Год : "+strings[5]+"\n"+"Количество страниц : "+ strings[6]+"\n"+"ISBN : "+strings[7]);
+        try {
+            work.load(txt.getText().toString());
+            strings = work.splitter();
+            text.setText("Название книги : " + strings[0] + "\n" + "Жанр : " + strings[1] + "\n" + "Автор : " + strings[2] + "\n" +
+                    "Город : " + strings[3] + "\n" + "Издательство : " + strings[4] + "\n" + "Год : " + strings[5] + "\n" + "Количество страниц : " + strings[6] + "\n" + "ISBN : " + strings[7]);
+        }
+        catch (IllegalStateException ex){
+            toast("Нет изображения, чтобы \n просмотреть данные").show();
+        }
+        catch (NullPointerException ex){
+            toast("Нет изображения или \n данные введены неверно").show();
+        }
     }
-
+        Toast toast(String value){
+            Toast toast = Toast.makeText(getApplicationContext(),value, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            return toast;
+        }
     /**
      * Button для загрузки данных в базу данных
      * @param view параметр отвечающий за отображение
      */
     public void onLoadDbClick(View view) {
-        dbhelper.insertLabel(strings[0],strings[5],strings[6],strings[1],strings[2],strings[3],strings[4],strings[7]);
-        finish();
+        try {
+            dbhelper.insertLabel(strings[0],strings[5],strings[6],strings[1],strings[2],strings[3],strings[4],strings[7]);
+            finish();
+        }
+        catch (NullPointerException ex){
+            toast("Нет изображения или \n данные введены неверно").show();
+        }
     }
 
     /**
