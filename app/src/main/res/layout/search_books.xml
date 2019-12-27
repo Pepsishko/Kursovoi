@@ -164,6 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="searchBTNClick"
+
         android:text="@string/search"
         android:background="@drawable/inset"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -229,13 +230,15 @@
 
     <ListView
         android:id="@+id/searchBo"
-        android:layout_width="290dp"
-        android:layout_height="94dp"
+        android:layout_width="293dp"
+        android:layout_height="166dp"
+        android:divider="@color/text"
+        android:dividerHeight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="0.623" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

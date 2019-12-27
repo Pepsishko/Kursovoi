@@ -81,6 +81,12 @@ public class Search extends Activity {
         if(!page.getText().toString().equals("")&&!(page1.getText().toString().equals(""))){
             request+="maintable.PAGES BETWEEN "+page.getText().toString()+" AND "+page1.getText().toString()+" AND ";
         }
+        if(!page.getText().toString().equals("")||!(page1.getText().toString().equals(""))){
+            if(!page.getText().toString().equals(""))
+            request+="maintable.PAGES="+page.getText().toString()+" AND ";
+            if(!page1.getText().toString().equals(""))
+                request+="maintable.PAGES="+page1.getText().toString()+" AND ";
+        }
         if(!year.getText().toString().equals("")&&!(year1.getText().toString().equals(""))){
             request+="maintable.YEAR BETWEEN "+year.getText().toString()+" AND "+year1.getText().toString()+" AND ";
         }

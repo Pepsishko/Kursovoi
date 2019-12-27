@@ -98,7 +98,7 @@ public class DBHELPER extends SQLiteOpenHelper {
         } else {
             db.execSQL("INSERT INTO authortable(NAME_OF_AUTHOR) VALUES ('" + value + "')");
         }
-        db.close();
+    //    db.close();
         return false;
     }
 
@@ -125,7 +125,7 @@ public class DBHELPER extends SQLiteOpenHelper {
         } else {
             db.execSQL("INSERT INTO genretable(NAME_OF_GENRE) VALUES ('" + value + "')");
         }
-        db.close();
+  //      db.close();
         return false;
     }
 
@@ -152,7 +152,7 @@ public class DBHELPER extends SQLiteOpenHelper {
         } else {
             db.execSQL("INSERT INTO citytable(NAME_OF_CITY) VALUES ('" + value + "')");
         }
-        db.close();
+    //    db.close();
         return false;
     }
 
@@ -179,7 +179,7 @@ public class DBHELPER extends SQLiteOpenHelper {
         } else {
             db.execSQL("INSERT INTO publishertable(NAME_OF_PUBLISHER) VALUES ('" + value + "')");
         }
-        db.close();
+      //  db.close();
         return false;
     }
 
@@ -201,7 +201,7 @@ public class DBHELPER extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        db.close();
+     //   db.close();
         return result;
     }
 
@@ -252,7 +252,7 @@ public class DBHELPER extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        db.close();
+       // db.close();
         return result;
     }
 
