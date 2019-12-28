@@ -3,6 +3,7 @@ package com.example.kursovoi;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -79,6 +80,15 @@ public class MainActivity extends Activity {
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        if (requestCode == 1) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this,"Разрешения на камеру получены", Toast.LENGTH_SHORT).show();
+                // perform your action here
+
+            } else {
+                Toast.makeText(this,"Разрешение на камеру не получены", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     /**
@@ -103,10 +113,18 @@ public class MainActivity extends Activity {
             // иначе запрашиваем разрешение у пользователя
             requestPermission(WRITE_EXTERNAL_STORAGE, REQUEST_WRITE_EXTERNAL_STORAGE);
         }
+        String permission = Manifest.permission.CAMERA;
+        int grant = ContextCompat.checkSelfPermission(this, permission);
+        if (grant != PackageManager.PERMISSION_GRANTED) {
+            String[] permission_list = new String[1];
+            permission_list[0] = permission;
+            ActivityCompat.requestPermissions(this, permission_list, 1);
+        }
         OpenCVLoader.initDebug();
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         dbhelper=new DBHELPER(this);
+
     }
 
     /**
