@@ -267,10 +267,10 @@ public class DBHELPER extends SQLiteOpenHelper {
      * @param year      Год книги
      * @param page      Кол-во страниц книги
      */
-    public void update(int id, String nameBook, String genre, String author, String city, String publisher, int year, int page) {
+    public void update(int id, String nameBook, String genre, String author, String city, String publisher, int year, int page,String isbn) {
         checkAuthor(author);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE maintable SET NAME_OF_BOOK='" + nameBook + "',GENRE=" + returnIDGenre(genre) + ",AUTHOR=" + returnIDAuthor(author) + ",CITY=" + returnIDCity(city) + ",PUBLISHER=" + returnIDPublisher(publisher) + ",YEAR=" + year + ",PAGES=" + page + " where ID_MAIN=" + id + "");
+        db.execSQL("UPDATE maintable SET NAME_OF_BOOK='" + nameBook + "',GENRE=" + returnIDGenre(genre) + ",AUTHOR=" + returnIDAuthor(author) + ",CITY=" + returnIDCity(city) + ",PUBLISHER=" + returnIDPublisher(publisher) + ",YEAR=" + year + ",PAGES=" + page + ",ISBN='"+isbn+"' where ID_MAIN=" + id + "");
 
     }
 

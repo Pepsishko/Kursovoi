@@ -3,6 +3,7 @@ package com.example.kursovoi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ public class UpdateDB extends Activity {
     EditText bookEdit;
     EditText page;
     EditText year;
+    EditText isbn;
     Spinner genre;
     Spinner city;
     Spinner publisher;
@@ -33,9 +35,13 @@ public class UpdateDB extends Activity {
         Intent intent = getIntent();
         strings=intent.getExtras().getStringArrayList("update");
         nameEdit=findViewById(R.id.nameEditUpdate);
+        nameEdit.setInputType(InputType.TYPE_CLASS_TEXT);
+        isbn=findViewById(R.id.isbnEditUpdate);
         bookEdit=findViewById(R.id.bookEditUpdate);
         page=findViewById(R.id.pageEdit1Update);
+        page.setInputType(InputType.TYPE_CLASS_NUMBER);
         year=findViewById(R.id.yearEdit1Update);
+        page.setInputType(InputType.TYPE_CLASS_NUMBER);
         genre=findViewById(R.id.spinnerUpdate);
         city=findViewById(R.id.spinner2Update);
         publisher=findViewById(R.id.spinner3Update);
@@ -44,6 +50,7 @@ public class UpdateDB extends Activity {
         bookEdit.setText(strings.get(0));
         page.setText(strings.get(6));
         year.setText(strings.get(5));
+        isbn.setText(strings.get(7));
         ArrayList<String> genreList= dbHelper.genre();
         ArrayList<String> cityList= dbHelper.city();
         ArrayList<String> publisherList= dbHelper.publisher();
@@ -83,7 +90,7 @@ public class UpdateDB extends Activity {
      * @param view параметр отвечающий за отображение
      */
     public void updClickBtn(View view) {
-        dbHelper.update(Integer.valueOf(strings.get(8)) ,bookEdit.getText().toString(),genre.getSelectedItem().toString(),nameEdit.getText().toString(),city.getSelectedItem().toString(),publisher.getSelectedItem().toString(),Integer.valueOf(year.getText().toString()),Integer.valueOf(page.getText().toString()));
+        dbHelper.update(Integer.valueOf(strings.get(8)) ,bookEdit.getText().toString(),genre.getSelectedItem().toString(),nameEdit.getText().toString(),city.getSelectedItem().toString(),publisher.getSelectedItem().toString(),Integer.valueOf(year.getText().toString()),Integer.valueOf(page.getText().toString()),isbn.getText().toString());
         finish();
     }
 }

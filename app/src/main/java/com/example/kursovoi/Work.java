@@ -34,6 +34,7 @@ try{
        result[2]=result[2].trim();
        //==============Город==================================
        temp=string.substring(string.indexOf('-')+1);
+
        temp=temp.trim();
        //=====================================================
        result[3]=temp.substring(0,temp.indexOf(':'));
@@ -41,6 +42,9 @@ try{
        temp=temp.substring(temp.indexOf(':')+1);
        //==============Издательство==================================
        result[4]=temp.substring(0,temp.indexOf(','));
+       if(result[4].contains("Издательство")){
+           result[4]=result[4].replaceAll("Издательство","");
+       }
        result[4]=result[4].trim();
        temp=temp.substring(temp.indexOf(',')+1);
        temp=temp.trim();

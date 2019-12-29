@@ -3,6 +3,7 @@ package com.example.kursovoi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,7 @@ public class Search extends Activity {
     EditText page1;
     EditText year;
     EditText year1;
+    EditText isbn;
     Spinner genre;
     Spinner city;
     Spinner publisher;
@@ -47,9 +49,14 @@ public class Search extends Activity {
         city=findViewById(R.id.spinner2);
         publisher=findViewById(R.id.spinner3);
         page=findViewById(R.id.pageEdit1);
+        page.setInputType(InputType.TYPE_CLASS_NUMBER);
         page1=findViewById(R.id.pageEdit2);
+        page1.setInputType(InputType.TYPE_CLASS_NUMBER);
         year=findViewById(R.id.yearEdit1);
+        year.setInputType(InputType.TYPE_CLASS_NUMBER);
         year1=findViewById(R.id.yearEdit2);
+        year1.setInputType(InputType.TYPE_CLASS_NUMBER);
+        isbn=findViewById(R.id.isbnEdit);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.genre());
         ArrayAdapter<String> adapter1=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.city());
         ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,R.layout.spinner_item_custom,dbHelper.publisher());
@@ -89,6 +96,9 @@ public class Search extends Activity {
         }
         if(!year.getText().toString().equals("")&&!(year1.getText().toString().equals(""))){
             request+="maintable.YEAR BETWEEN "+year.getText().toString()+" AND "+year1.getText().toString()+" AND ";
+        }
+        if(!isbn.getText().toString().equals("")){
+            request+="maintable.ISBN="+"\""+isbn.getText().toString()+"\""+" AND ";
         }
         String var=request.trim();
         String[] varSplit=var.split(" ");

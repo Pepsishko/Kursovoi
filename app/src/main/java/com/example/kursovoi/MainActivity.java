@@ -80,15 +80,15 @@ public class MainActivity extends Activity {
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-        if (requestCode == 1) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this,"Разрешения на камеру получены", Toast.LENGTH_SHORT).show();
-                // perform your action here
+      if (requestCode == 1) {
+          if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+              Toast.makeText(this,"Разрешения на камеру получены", Toast.LENGTH_SHORT).show();
+              // perform your action here
 
-            } else {
-                Toast.makeText(this,"Разрешение на камеру не получены", Toast.LENGTH_SHORT).show();
-            }
-        }
+          } else {
+              Toast.makeText(this,"Разрешение на камеру не получены", Toast.LENGTH_SHORT).show();
+          }
+      }
     }
 
     /**
@@ -278,11 +278,12 @@ public class MainActivity extends Activity {
      */
     private String extractText() {
       //  Bitmap bitmap= BitmapFactory.decodeByteArray(massPhoto,0,massPhoto.length);
-        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
+      //  Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.testx);
         Test();
         Test1();
-       //  Bitmap btmp = open(bp);
-        Bitmap btmp = open(bitmap);
+         Bitmap btmp = open(bp);
+       //
+        // Bitmap btmp = open(bitmap);
         TessBaseAPI tessBaseApi = new TessBaseAPI();
         tessBaseApi.init("/mnt/sdcard/tesseract", "rus");
         // tessBaseApi.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST,"ISBN");
@@ -409,7 +410,7 @@ public class MainActivity extends Activity {
      * Button для просмотра распознанного текста
      * @param view параметр отвечающий за отображение
      */
-    public void onClick1(View view) {
+    public void onClick1(View view)  {
         try {
             work.load(txt.getText().toString());
             strings = work.splitter();
